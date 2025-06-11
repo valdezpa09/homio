@@ -523,3 +523,74 @@ Example
   entity: climate.living_room_thermostat
   name: Heating
 ```
+
+## **A full working example**
+
+```
+button_card_templates: !include_dir_merge_named /config/dashboards/templates/button_cards
+views:
+  - type: custom:grid-layout
+    title: lounge
+    path: lounge
+    layout: !include /config/dashboards/templates/includes/homio_screen_layout.yaml
+    cards:
+      - type: custom:button-card
+        variables:
+          image: lounge
+          image_position: center center
+          show_humid: true
+          humid_sensor: sensor.living_room_sensor_humidity
+          show_temp: true
+          temp_sensor: sensor.living_room_sensor_temperature
+          show_motion: true
+          motion_sensor: binary_sensor.hue_motion_sensor_living_room
+        template:
+          - homio_room
+        name: Lounge Room
+      - type: custom:layout-card
+        layout_type: custom:grid-layout
+        layout: !include /config/dashboards/templates/includes/homio_entity_layout.yaml
+        cards:
+          - type: custom:button-card
+            variables:
+              icon: window
+            template:
+              - homio_entity
+            entity: binary_sensor.living_room_windows
+            name: Windows
+          - type: custom:button-card
+            variables:
+              icon: lamp
+            template:
+              - homio_light
+            entity: light.hue_living_room_lamp
+            name: Lamp
+          - type: custom:button-card
+            variables:
+              icon: pendent
+            template:
+              - homio_light
+            entity: light.hue_living_room_front
+            name: Front Light
+          - type: custom:button-card
+            variables:
+              icon: pendent
+            template:
+              - homio_light
+            entity: light.hue_living_room_back
+            name: Back Light
+          - type: custom:button-card
+            variables:
+              icon: tv
+            template:
+              - homio_entity
+            entity: media_player.living_room_samsung_tv
+            name: Samsung TV
+          - type: custom:button-card
+            variables:
+              icon: apple_tv
+            template:
+              - homio_entity
+            entity: media_player.apple_tv
+            name: Apple TV
+```
