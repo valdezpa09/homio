@@ -1,4 +1,6 @@
 homio_room:
+  triggers_update:
+    - '[[[ return variables.motion_sensor ]]]'
   variables:
     show_motion: false
     motion_sensor: variables.montion_sensor
