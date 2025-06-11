@@ -8,7 +8,7 @@ Everything is done in YAML to give you full control and make it easier to share,
 
 ## **✅ What You’ll Need**
 
-Before jumping in, make sure you’ve got the basics covered:
+Please make sure to make a full backup of your current home assistant state, its just best practice. Before jumping in, make sure you’ve got the basics covered:
 
 1. Home Assistant in storage Mode
 Even though Homio is written entirely in YAML, you should leave the Lovelace mode set to storage in configuration.yaml. This allows you to keep using the UI editor for other dashboards, while loading Homio as a YAML dashboard.
@@ -135,14 +135,14 @@ entity_picture: /local/images/Homio/icons/heating.svg
 🧱 Layout Configuration
 Homio uses a consistent layout across all dashboards powered by custom:layout-card (modified version required – see Setup Requirements). The layout file handles page sizing, grid setup, and responsive breakpoints.
 
-📁 Location
+Location
 The layout file lives here:
 
 ```
 /config/dashboards/templates/includes/layouts/homio_screen_layout.yaml
 ```
 
-**homio_screen_layout**
+## **homio_screen_layout**
 Here’s what’s inside the layout file:
 
 ```
@@ -156,7 +156,7 @@ layout:
 
 This layout ensures a single-column responsive grid and full-height display.
 
-📋 Usage Example
+Usage Example
 Use the layout in your dashboard YAML like this:
 
 ```
@@ -177,7 +177,7 @@ Use the layout in your dashboard YAML like this:
         show_humid: true
 ```
 
-**homio_entity_layout**
+## **homio_entity_layout**
 
 The homio_entity_layout.yaml is a layout include file designed to make placing entity cards in a consistent, responsive layout easy. It handles spacing, responsive column counts, and layout switching for mobile views.
 
@@ -221,11 +221,11 @@ Fully reusable via !include
         icon: motion
 ```
 
-**homio_navigation.yaml**
+## **homio_navigation**
 
 This file builds the Homio Navigation Bar, automatically adapting to desktop and mobile devices. It includes the logo, navigation links, and current time display — all styled to match the Homio theme. You don’t need to touch this file
 
-🧱 File Structure Overview
+File Structure Overview
 
 ```
 type: vertical-stack
@@ -287,7 +287,7 @@ cards:
           template: homio_time
 ```
 
-🧩 Related Files Required
+Related Files Required
 Make sure the following exists
 
 /config/dashboards/templates/includes/homio_logo.yaml	- **Renders the Homio logo as a button card**
@@ -295,11 +295,11 @@ Make sure the following exists
 /config/dashboards/templates/includes/homio_navigation_list.yaml - **Holds navigation items (icons/links)**
 input_boolean.homio_mobile_navigation (Helper) -	**Toggles mobile drawer visibility**
 
-**homio_navigation_list.yaml**
+## **homio_navigation_list**
 
 This file contains the individual navigation buttons used in the top and side navigation bars. Each button links to a different Homio room/dashboard screen.
 
-⚠️ Recommendation: Keep it to 8 or fewer links for the best layout on larger screens. You only need to change the label and path to what ever your dashboard for that room is called
+⚠Recommendation: Keep it to 8 or fewer links for the best layout on larger screens. You only need to change the label and path to what ever your dashboard for that room is called
 
 ```
 - type: custom:button-card
@@ -360,12 +360,72 @@ This file contains the individual navigation buttons used in the top and side na
 
 ```
 
+## **Base cards**
 
+A few base cards that you wont need to touch but just so you know what they are doing
 
+## **homio_default**
 
+This is the foundational button card template used across most components. It sets consistent styles like font, layout and background effects
 
+```
+homio_default:
+  styles:
+    card:
+      - "--mdc-ripple-color": transparent
+      - "-webkit-tap-highlight-color": transparent
+      - position: relative
+      - border: none
+      - border-radius: 0
+      - padding: 0
+      - margin: 0
+      - animation: fadeIn 0.3s ease-in forwards
+  extra_styles: |
+    @keyframes fadeIn {
+      from {
+        opacity: 0
+      }
+      to {
+        opacity: 1
+      }
+    }
 
+```
 
+## **homio_entity**
+
+This template extends homio_default and is used for entity status cards such as lights, climate status, water, motion, doors, windows, etc. It’s clean, responsive, and visually consistent across different types of entities.
+
+```
+homio_entity:
+  template:
+    - homio_default
+  show_entity_picture: true
+  entity_picture: |
+    [[[
+      return `/local/images/Homio/icons/${variables.icon}.svg`;
+    ]]]
+  styles:
+    card:
+      - height: 85px
+      - scroll-snap-align: start
+    img_cell:
+      - justify-self: end
+      - align-self: center
+    icon:
+      - width: 22px
+      - height: 22px
+```
+
+## **Main Cards**
+
+These are currently the cards I have setup, there are more to come.
+
+## **homio_room**
+
+The homio_room card acts as the top visual banner for each room or area on your dashboard. It typically includes a large background image, room name, temperature/humidity readouts, and optional motion detection feedback.
+
+This card is intended to be used once per room dashboard, placed at the top for an immersive overview.
 
 
 
