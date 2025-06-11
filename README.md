@@ -427,6 +427,8 @@ The homio_room card acts as the top visual banner for each room or area on your 
 
 This card is intended to be used once per room dashboard, placed at the top for an immersive overview.
 
+Make sure to use the template named homio_room for the custom button card as per the example below
+
 ### `Variables`
 
 | Variable         | Default        | Description                                                                 |
@@ -472,6 +474,8 @@ The homio_light template extends homio_entity to provide dynamic control and sta
 
 This card provides a clean, minimal UI with behavior tailored to typical light use cases.
 
+Make sure to use the template named homio_light for the custom button card as per the example below
+
 **Features**
 Shows brightness percentage when light is on.
 
@@ -508,6 +512,8 @@ my-slider-v2 must be installed via HACS or manually, and the resource must be in
 ## **homio_thermostat**
 
 The homio_thermostat template brings smart control to your heating setup. It combines HVAC mode switching, target temperature setting, and a clean display layout using only button-card and layout-card components.
+
+Make sure to use the template named homio_thermostat for the custom button card as per the example below
 
 Required Helpers & Setup
 
