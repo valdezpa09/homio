@@ -526,6 +526,13 @@ Example
 
 ## **A full working example**
 
+The dashboard is located here /config/dashboards/homio/homio.yaml
+
+Make sure to add the below on the first line of any dashboard you create
+
+button_card_templates: !include_dir_merge_named /config/dashboards/templates/button_cards
+
+
 ```
 button_card_templates: !include_dir_merge_named /config/dashboards/templates/button_cards
 views:
