@@ -493,3 +493,33 @@ Example
     icon: ceiling
 ```
 
+This will show:
+
+A light icon (optional custom via icon variable),
+
+"Brightness - 78%" when light is on,
+
+"Off" when light is off,
+
+A horizontal slider (animated in) for brightness control when light is on.
+
+my-slider-v2 must be installed via HACS or manually, and the resource must be included in your Lovelace configuration.
+
+## **homio_thermostat**
+
+The homio_thermostat template brings smart control to your heating setup. It combines HVAC mode switching, target temperature setting, and a clean display layout using only button-card and layout-card components.
+
+Required Helpers & Setup
+
+input_boolean.homio_heating_control: Controls visibility of the temp controls
+
+input_number.homio_thermostat_target_temperature: Stores the temperature to be sent
+
+Example
+
+```
+- type: custom:button-card
+  template: homio_thermostat
+  entity: climate.living_room_thermostat
+  name: Heating
+```
