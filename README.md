@@ -17,7 +17,7 @@ Even though Homio is written entirely in YAML, you should leave the Lovelace mod
 lovelace:
   mode: storage
   dashboards:
-    dashboard-homioy:
+    dashboard-homio:
       mode: yaml
       title: "homio"
       icon: mdi:star-plus-outline
