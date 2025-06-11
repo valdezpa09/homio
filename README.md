@@ -33,7 +33,7 @@ This is the main building block of Homio.
 
 **layout-card by Thomas Loven** — https://github.com/thomasloven/lovelace-layout-card
 
-You’ll need to use the slightly modified version included in this repo to support extra CSS properties.
+You’ll need to use the slightly modified version included in this repo to support extra CSS properties. Dont install this card via HACS, add it in the location specified in the folder structure.
 
 This card need to be installed here:
 
