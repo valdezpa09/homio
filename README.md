@@ -43,7 +43,7 @@ This card need to be installed here:
 
 This card need to be installed here
 
-**/local/community/light-slider/my-slider-v2.js"**
+**/local/community/light-slider/my-slider-v2.js**
 
 
 ## 📁 Folder Structure
