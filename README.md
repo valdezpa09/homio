@@ -54,48 +54,50 @@ Everything lives under `/config` in your Home Assistant setup:
 /config
 │
 ├── dashboards/
-│   └── homio/
-│       └── homio.yaml               # Main dashboard YAML file
+│   ├── homio/
+│   │   └── homio.yaml                   # Main dashboard YAML file
+│   │
+│   ├── templates/
+│   │   ├── button_cards/
+│   │   │   ├── base/                    # Base templates like homio_default
+│   │   │   └── cards/                   # Entity-specific cards like homio_light, homio_thermostat
+│   │   └── includes/
+│   │       ├── layouts/                # Layouts like homio_navigation.yaml
+│   │       └── rooms/                  # Optional: room-specific cards
 │
-├── dashboards/templates/
-│   ├── includes/                    # Layout includes and card groups
-│   │   ├── layouts/                 # Layout-specific YAML includes
-│   │   └── rooms/                   # Optional: room-specific cards
-│   └── templates/
-│       └── homio_templates.yaml     # All button-card templates
-│
-├── helpers/
-│   └── homio_helpers.yaml           # All required helpers (input_booleans, numbers, etc.)
+├── packages/
+│   └── homio_helpers.yaml              # All required helpers (input_booleans, numbers, etc.)
 │
 ├── themes/
 │   └── homio/
-│       └── homio.yaml               # The Homio theme
+│       └── homio.yaml                  # The Homio theme
 │
 ├── www/
 │   ├── community/
 │   │   ├── button-card/
-│   │   │   └── button-card.js       # Required button-card
+│   │   │   └── button-card.js          # Required button-card
 │   │   ├── layout-card-modified/
-│   │   │   └── layout-card-modified.js  # Slightly tweaked layout-card
+│   │   │   └── layout-card-modified.js # Slightly tweaked layout-card
 │   │   └── light-slider/
-│   │       └── my-slider-v2.js      # Slider for lights and climate
+│   │       └── my-slider-v2.js         # Slider for lights and climate
 │   └── images/
 │       └── Homio/
-│           ├── icons/               # SVG icons for climate/mode visuals
+│           ├── icons/                  # SVG icons for climate/mode visuals
 │           │   ├── heating.svg
 │           │   ├── increase.svg
 │           │   ├── decrease.svg
 │           │   └── power_off.svg
-│           └── rooms/               # Background images for rooms
+│           └── rooms/                  # Background images for rooms
 │               ├── kitchen.jpg
 │               ├── living_room.jpg
 │               └── bedroom.jpg
 │
-├── sensors.yaml                     # Any custom sensors used by Homio
+├── sensors.yaml                         # Any custom sensors used by Homio
 ├── automations.yaml
 ├── scripts.yaml
 ├── scenes.yaml
-└── configuration.yaml               # Main configuration file for Home Assistant, includes are added here
+└── configuration.yaml                   # Where includes are added
+
 
 ```
 
