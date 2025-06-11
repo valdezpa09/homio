@@ -10,7 +10,8 @@ Desktop
 Mobile
 
 <img width="573" alt="Screenshot 2025-06-11 at 22 04 36" src="https://github.com/user-attachments/assets/9d4c8201-dd9d-4912-ba34-7ccf24d0a750" />
-<img width="573" alt="Screenshot 2025-06-11 at 22 06 29" src="https://github.com/user-attachments/assets/45447a9d-24d9-48b0-826b-561633f97019" />
+<img width="572" alt="Screenshot 2025-06-11 at 22 08 10" src="https://github.com/user-attachments/assets/5718134e-4ca3-4247-adf0-8a170d70cc6b" />
+
 
 
 
