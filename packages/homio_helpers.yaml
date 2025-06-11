@@ -1,0 +1,7 @@
+input_boolean:
+  homio_heating_control:
+    name: Heating Control
+    initial: off
+  homio_mobile_navigation:
+    name: Mobile Navigation
+    initial: off
