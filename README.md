@@ -427,6 +427,47 @@ The homio_room card acts as the top visual banner for each room or area on your 
 
 This card is intended to be used once per room dashboard, placed at the top for an immersive overview.
 
+Variables
+```
+| Variable         | Default        | Description                                                                 |
+|------------------|----------------|-----------------------------------------------------------------------------|
+| `image`          | —              | Name of the background image (omit `.jpg`). Looks inside `/www/images/Homio/rooms/`. |
+| `image_position` | `center center`| Optional background alignment of the image.                                |
+| `show_motion`    | `false`        | Set to `true` to enable the motion detection banner.                        |
+| `motion_sensor`  | `""`           | Entity ID of the motion binary sensor. Required if `show_motion` is `true`.|
+| `show_temp`      | `false`        | Set to `true` to display the temperature summary field.                     |
+| `temp_sensor`    | `""`           | Entity ID of the temperature sensor. Required if `show_temp` is `true`.     |
+| `show_humid`     | `false`        | Set to `true` to display the humidity summary field.                        |
+| `humid_sensor`   | `""`           | Entity ID of the humidity sensor. Required if `show_humid` is `true`.       |
+
+```
+
+Example Usage
+
+```
+- type: custom:button-card
+  template: homio_room
+  name: Living Room
+  variables:
+    image: living_room
+    image_position: center center
+    show_motion: true
+    motion_sensor: binary_sensor.living_room_motion
+    show_temp: true
+    temp_sensor: sensor.living_room_temperature
+    show_humid: true
+    humid_sensor: sensor.living_room_humidity
+```
+
+This will display a room card titled Living Room with:
+
+Background image: /local/images/Homio/rooms/living_room.jpg
+
+Motion banner when motion is detected.
+
+Temperature and humidity status shown at the bottom.
+
+## **homio_light**
 
 
 
