@@ -29,11 +29,11 @@ Homio uses a couple of custom cards.
 
 **button-card by Romraider** — https://github.com/custom-cards/button-card 
 
-This is the main building block of Homio.
+This is the main building block of Homio. Install it via HCS
 
 **layout-card by Thomas Loven** — https://github.com/thomasloven/lovelace-layout-card
 
-You’ll need to use the slightly modified version included in this repo to support extra CSS properties. Dont install this card via HACS, add it in the location specified in the folder structure.
+You’ll need to use the slightly modified version included in this repo named layout-card-modified to support extra CSS properties. Dont install this card via HACS, grab it from the repo and add it in the location specified in the folder structure.
 
 This card need to be installed here:
 
