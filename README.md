@@ -506,7 +506,7 @@ Required Helpers & Setup
 
 input_boolean.homio_heating_control: Controls visibility of the temp controls
 
-input_number.homio_thermostat_target_temperature: Stores the temperature to be sent in a helper which reacts much quicker on tap and only fires one service call to update the actual entity target temperature once the set button is triggered.
+input_number.homio_thermostat_target_temperature: Stores the temperature to be sent in a helper which reacts much quicker on tap and only fires one service call to update the actual entity target temperature once the set button is triggered when you have the desired temperature.
 
 Example
 
