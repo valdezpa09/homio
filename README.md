@@ -27,15 +27,11 @@ lovelace:
 3. A Few Custom Cards
 Homio uses a couple of custom cards.
 
-**button-card by Romraider** — https://github.com/custom-cards/button-card 
+**button-card by Romraider** — https://github.com/custom-cards/button-card  - This is the main building block of Homio. Install it via HCS
 
-This is the main building block of Homio. Install it via HCS
+**layout-card by Thomas Loven** — https://github.com/thomasloven/lovelace-layout-card - You’ll need to actually use the slightly modified version included in this repo based on the layout-card by Thomas Loven **https://github.com/iamtherufus/Homio/blob/main/layout-card-modified.js** which supports some extra CSS properties. Dont install this card via HACS, grab it from the repo.
 
-**layout-card by Thomas Loven** — https://github.com/thomasloven/lovelace-layout-card
-
-You’ll need to use the slightly modified version included in this repo named layout-card-modified to support extra CSS properties. Dont install this card via HACS, grab it from the repo and add it in the location specified in the folder structure.
-
-This card need to be installed here:
+This card need to be installed in this location
 
 **/www/community/layout-card-modified/layout-card-modified.js**
 
