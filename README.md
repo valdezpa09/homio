@@ -101,18 +101,6 @@ Everything lives under `/config` in your Home Assistant setup:
 
 ```
 
-## **💡 What Goes Where?**
-
-**homio.yaml:** Your main dashboard file. This is where each screen and layout is defined.
-
-**homio_templates.yaml:** All your button-card templates live here.
-
-**includes/:** Used for reusable layout snippets and grouped cards, so the main dashboard stays clean.
-
-**homio_helpers.yaml:** All required helpers (like input_booleans or input_numbers) go here. No need to create them through the UI.
-
-**homio.yaml (theme):** The visual style of Homio.
-
 ## **🖼️ Assets Setup – Images & Icons**
 
 To make Homio look the way it’s intended, you’ll need to add your own room images and icons to the www folder in Home Assistant. These are used for things like room backgrounds and custom icons inside button cards. I dont use the built in mdi icons as i dont like them, i do use the material icons though but download them from google at the 100 weight as i feel they fitted my design better. I will include these in the repo and i plan to keep adding to them as well.
