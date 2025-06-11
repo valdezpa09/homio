@@ -132,7 +132,7 @@ entity_picture: /local/images/Homio/icons/heating.svg
 
 ## **Layout Cards**
 
-🧱 Layout Configuration
+Layout Configuration
 Homio uses a consistent layout across all dashboards powered by custom:layout-card (modified version required – see Setup Requirements). The layout file handles page sizing, grid setup, and responsive breakpoints.
 
 Location
@@ -427,8 +427,8 @@ The homio_room card acts as the top visual banner for each room or area on your 
 
 This card is intended to be used once per room dashboard, placed at the top for an immersive overview.
 
-Variables
-```
+### `Variables`
+
 | Variable         | Default        | Description                                                                 |
 |------------------|----------------|-----------------------------------------------------------------------------|
 | `image`          | —              | Name of the background image (omit `.jpg`). Looks inside `/www/images/Homio/rooms/`. |
@@ -440,7 +440,6 @@ Variables
 | `show_humid`     | `false`        | Set to `true` to display the humidity summary field.                        |
 | `humid_sensor`   | `""`           | Entity ID of the humidity sensor. Required if `show_humid` is `true`.       |
 
-```
 
 Example Usage
 
@@ -469,5 +468,28 @@ Temperature and humidity status shown at the bottom.
 
 ## **homio_light**
 
+The homio_light template extends homio_entity to provide dynamic control and status display for light entities. It includes a built-in brightness percentage readout and an animated slider (using my-slider-v2) for seamless brightness adjustment.
 
+This card provides a clean, minimal UI with behavior tailored to typical light use cases.
+
+**Features**
+Shows brightness percentage when light is on.
+
+Tap toggles light on only (off handled via hold).
+
+Hold toggles light off.
+
+Animated brightness slider appears only when light is on.
+
+Smooth transform transition for slider reveal.
+
+Example
+```
+- type: custom:button-card
+  template: homio_light
+  entity: light.kitchen_ceiling
+  name: Kitchen
+  variables:
+    icon: ceiling
+```
 
