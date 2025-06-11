@@ -58,7 +58,7 @@ homio_room:
         - bottom: 0
         - transform: |
             [[[
-              return states["binary_sensor.hue_motion_sensor_living_room"].state === "on"
+              return states[variables.motion_sensor].state === "on"
                 ? "translateY(0)"
                 : "translateY(100%)";
             ]]]
