@@ -1,0 +1,24 @@
+homio_mobile_logo:
+  name: Homio.
+  tap_action:
+    action: navigate
+    navigation_path: /dashboard-homioy/home
+  styles:
+    name:
+      - color: var(--primary-text-color)
+      - letter-spacing: 2px
+      - font-size: 18px
+      - font-weight: 700
+      - text-transform: uppercase
+      - justify-self: start
+    card:
+      - background: transparent
+      - pointer-events: all
+      - display: |
+          [[[
+            if (states["input_boolean.homio_mobile_navigation"].state === "on") {
+              return "none";
+            } else {
+              return "block";
+            }
+          ]]]
