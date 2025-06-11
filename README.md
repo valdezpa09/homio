@@ -61,22 +61,42 @@ Everything lives under `/config` in your Home Assistant setup:
 │   ├── includes/                    # Layout includes and card groups
 │   │   ├── layouts/                 # Layout-specific YAML includes
 │   │   └── rooms/                   # Optional: room-specific cards
-│   └── templates/                   # All button-card templates
-│       └── homio_templates.yaml
+│   └── templates/
+│       └── homio_templates.yaml     # All button-card templates
 │
 ├── helpers/
-│   └── homio_helpers.yaml          # All required helpers (input_booleans, numbers, etc.)
+│   └── homio_helpers.yaml           # All required helpers (input_booleans, numbers, etc.)
 │
 ├── themes/
 │   └── homio/
-│       └── homio.yaml              # The Homio theme
+│       └── homio.yaml               # The Homio theme
 │
-├── sensors.yaml                    # Any custom sensors used by Homio
+├── www/
+│   ├── community/
+│   │   ├── button-card/
+│   │   │   └── button-card.js       # Required button-card
+│   │   ├── layout-card-modified/
+│   │   │   └── layout-card-modified.js  # Slightly tweaked layout-card
+│   │   └── light-slider/
+│   │       └── my-slider-v2.js      # Slider for lights and climate
+│   └── images/
+│       └── Homio/
+│           ├── icons/               # SVG icons for climate/mode visuals
+│           │   ├── heating.svg
+│           │   ├── increase.svg
+│           │   ├── decrease.svg
+│           │   └── power_off.svg
+│           └── rooms/               # Background images for rooms
+│               ├── kitchen.jpg
+│               ├── living_room.jpg
+│               └── bedroom.jpg
 │
+├── sensors.yaml                     # Any custom sensors used by Homio
 ├── automations.yaml
 ├── scripts.yaml
 ├── scenes.yaml
-└── configuration.yaml              # Where includes are added
+└── configuration.yaml               # Main configuration file for Home Assistant, includes are added here
+
 ```
 
 ## **💡 What Goes Where?**
