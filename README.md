@@ -35,7 +35,8 @@ This card need to be installed in this location
 
 **/www/community/layout-card-modified/layout-card-modified.js**
 
-**my-slider-v2 by AnthonMS** - https://github.com/AnthonMS/my-cards/tree/main
+**my-slider-v2 by AnthonMS** - This is a fantastic light slider created by AnthonMS which is used for the homio_light card brightness slider. Full details on his configuration setup are below.
+https://github.com/AnthonMS/my-cards/blob/main/docs/cards/slider-v2.md
 
 This card need to be installed here
 
