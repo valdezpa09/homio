@@ -27,11 +27,11 @@ lovelace:
 3. A Few Custom Cards
 Homio uses a couple of custom cards.
 
-button-card by Romraider — https://github.com/custom-cards/button-card 
+**button-card by Romraider** — https://github.com/custom-cards/button-card 
 
 This is the main building block of Homio.
 
-layout-card by Thomas Loven — https://github.com/thomasloven/lovelace-layout-card
+**layout-card by Thomas Loven** — https://github.com/thomasloven/lovelace-layout-card
 
 You’ll need to use the slightly modified version included in this repo to support extra CSS properties.
 
@@ -39,7 +39,7 @@ This card need to be installed here:
 
 **/www/community/layout-card-modified/layout-card-modified.js**
 
-my-slider-v2 by AnthonMS - https://github.com/AnthonMS/my-cards/tree/main
+**my-slider-v2 by AnthonMS** - https://github.com/AnthonMS/my-cards/tree/main
 
 
 ## 📁 Folder Structure
