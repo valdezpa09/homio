@@ -2,8 +2,7 @@
 
 Homio is a clean, minimal, and fully YAML-based dashboard for Home Assistant that i build for a bit of fun. It's still work in progress but wanted to share it with you after receiving many requests for it. It’s built with tablets in mind — perfect for a wall-mounted screen — but it also works well on mobile thanks to its responsive layout.
 
-Everything is done in YAML to give you full control and make it easier to share, reuse, and tweak. No UI editors here — just clean files and templates that you can version, back up, and build on.
-
+Everything is done in YAML to give you full control and make it easier to share, reuse, and tweak. 
 
 
 ## **✅ What You’ll Need**
@@ -36,11 +35,11 @@ layout-card by Thomas Loven — https://github.com/thomasloven/lovelace-layout-c
 
 You’ll need to use the slightly modified version included in this repo to support extra CSS properties.
 
-This card need to be installed here
+This card need to be installed here:
 
-/www/community/layout-card-modified/layout-card-modified.js
+**/www/community/layout-card-modified/layout-card-modified.js**
 
-slider v2 by AnthonMS - https://github.com/AnthonMS/my-cards/tree/main
+Slider v2 by AnthonMS - https://github.com/AnthonMS/my-cards/tree/main
 
 
 ## 📁 Folder Structure
@@ -80,19 +79,21 @@ Everything lives under `/config` in your Home Assistant setup:
 
 **homio.yaml:** Your main dashboard file. This is where each screen and layout is defined.
 
-**homio_templates.yaml:** All your button-card templates live here — nice and tidy.
+**homio_templates.yaml:** All your button-card templates live here.
 
 **includes/:** Used for reusable layout snippets and grouped cards, so the main dashboard stays clean.
 
 **homio_helpers.yaml:** All required helpers (like input_booleans or input_numbers) go here. No need to create them through the UI.
 
-**homio.yaml (theme):** The visual style of Homio. Works best with a minimal, soft look.
+**homio.yaml (theme):** The visual style of Homio.
 
 ## **🖼️ Assets Setup – Images & Icons**
 
 To make Homio look the way it’s intended, you’ll need to add your own room images and icons to the www folder in Home Assistant. These are used for things like room backgrounds and custom icons inside button cards. I dont use the built in mdi icons as i dont like them, i do use the material icons though but download them from google at the 100 weight as i feel they fitted my design better. I will include these in the repo and i plan to keep adding to them as well.
 
-https://fonts.google.com/icons?icon.query=light
+Material design icons: 
+
+**https://fonts.google.com/icons?icon.query=light**
 
 📁 Folder Structure
 Inside your /config/www directory, create the following folders:
@@ -113,7 +114,9 @@ Place your .jpg files in:
 /config/www/images/Homio/rooms/
 ```
 
-Make sure the file names match what you use in the image: variable (without the file extension). For example:
+Make sure the file names match what you use in the image: variable in the homio_room template (without the file extension). 
+
+For example:
 
 ```
 image: living_room  # Will load living_room.jpg
@@ -134,18 +137,10 @@ entity_picture: /local/images/Homio/icons/heating.svg
 
 ## **Layout Cards**
 
-Layout Configuration
 Homio uses a consistent layout across all dashboards powered by custom:layout-card (modified version required – see Setup Requirements). The layout file handles page sizing, grid setup, and responsive breakpoints.
 
-Location
-The layout file lives here:
-
-```
-/config/dashboards/templates/includes/layouts/homio_screen_layout.yaml
-```
-
 ## **homio_screen_layout**
-Here’s what’s inside the layout file:
+Here’s what’s inside the main screen layout file. This is used for each room dasboard.
 
 ```
 layout:
@@ -158,7 +153,7 @@ layout:
 
 This layout ensures a single-column responsive grid and full-height display.
 
-Usage Example
+**Example**
 Use the layout in your dashboard YAML like this:
 
 ```
@@ -181,11 +176,11 @@ Use the layout in your dashboard YAML like this:
 
 ## **homio_entity_layout**
 
-The homio_entity_layout.yaml is a layout include file designed to make placing entity cards in a consistent, responsive layout easy. It handles spacing, responsive column counts, and layout switching for mobile views.
+The homio enitiy layout is a layout include file designed to make placing entity cards in a consistent, responsive layout easy. It handles spacing, responsive column counts, and layout switching for mobile views.
 
 You don’t need to touch this file — just include it where you want a grid of homio_entity cards (or other custom buttons) to appear.
 
-💡 Features
+**Features**
 Horizontal scroll layout on large screens
 
 Responsive grid (2 columns) on tablets
@@ -196,7 +191,7 @@ Scroll snap and animation-friendly
 
 Fully reusable via !include
 
-🛠️ Usage Example
+**Example**
 
 ```
 - type: custom:layout-card
@@ -227,7 +222,7 @@ Fully reusable via !include
 
 This file builds the Homio Navigation Bar, automatically adapting to desktop and mobile devices. It includes the logo, navigation links, and current time display — all styled to match the Homio theme. You don’t need to touch this file
 
-File Structure Overview
+**File Structure Overview**
 
 ```
 type: vertical-stack
@@ -289,19 +284,13 @@ cards:
           template: homio_time
 ```
 
-Related Files Required
-Make sure the following exists
-
-/config/dashboards/templates/includes/homio_logo.yaml	- **Renders the Homio logo as a button card**
-/config/dashboards/templates/includes/homio_time.yaml -	**Displays the current time**
-/config/dashboards/templates/includes/homio_navigation_list.yaml - **Holds navigation items (icons/links)**
-input_boolean.homio_mobile_navigation (Helper) -	**Toggles mobile drawer visibility**
-
 ## **homio_navigation_list**
 
 This file contains the individual navigation buttons used in the top and side navigation bars. Each button links to a different Homio room/dashboard screen.
 
-⚠Recommendation: Keep it to 8 or fewer links for the best layout on larger screens. You only need to change the label and path to what ever your dashboard for that room is called
+Keep it to 8 or fewer links for the best layout on larger screens. You only need to change the label and path to what ever your dashboard for that room is called
+
+**Example**
 
 ```
 - type: custom:button-card
@@ -421,15 +410,15 @@ homio_entity:
 
 ## **Main Cards**
 
-These are currently the cards I have setup, there are more to come.
+These are currently the cards I have setup, there are more to come in the future.
 
 ## **homio_room**
 
-The homio_room card acts as the top visual banner for each room or area on your dashboard. It typically includes a large background image, room name, temperature/humidity readouts, and optional motion detection feedback.
+The homio room card acts as the top visual banner for each room or area on your dashboard. It typically includes a large background image, room name, temperature/humidity readouts, and optional motion detection feedback.
 
 This card is intended to be used once per room dashboard, placed at the top for an immersive overview.
 
-Make sure to use the template named homio_room for the custom button card as per the example below
+Make sure to use the template named homio_room for the custom button card as per the example below. The variables avilable on this card are in the table below.
 
 ### `Variables`
 
@@ -445,7 +434,7 @@ Make sure to use the template named homio_room for the custom button card as per
 | `humid_sensor`   | `""`           | Entity ID of the humidity sensor. Required if `show_humid` is `true`.       |
 
 
-Example Usage
+**Example**
 
 ```
 - type: custom:button-card
@@ -474,8 +463,6 @@ Temperature and humidity status shown at the bottom.
 
 The homio_light template extends homio_entity to provide dynamic control and status display for light entities. It includes a built-in brightness percentage readout and an animated slider (using my-slider-v2) for seamless brightness adjustment.
 
-This card provides a clean, minimal UI with behavior tailored to typical light use cases.
-
 Make sure to use the template named homio_light for the custom button card as per the example below
 
 **Features**
@@ -486,8 +473,6 @@ Tap toggles light on only (off handled via hold).
 Hold toggles light off.
 
 Animated brightness slider appears only when light is on.
-
-Smooth transform transition for slider reveal.
 
 Example
 ```
@@ -507,13 +492,13 @@ A light icon (optional custom via icon variable),
 
 "Off" when light is off,
 
-A horizontal slider (animated in) for brightness control when light is on.
+A horizontal slider for brightness control when light is on.
 
 my-slider-v2 must be installed via HACS or manually, and the resource must be included in your Lovelace configuration.
 
 ## **homio_thermostat**
 
-The homio_thermostat template brings smart control to your heating setup. It combines HVAC mode switching, target temperature setting, and a clean display layout using only button-card and layout-card components.
+The homio thermostat template brings smart control to your heating setup. It combines HVAC mode switching, target temperature setting, and a clean display layout using only button-card and layout-card components.
 
 Make sure to use the template named homio_thermostat for the custom button card as per the example below
 
@@ -521,7 +506,7 @@ Required Helpers & Setup
 
 input_boolean.homio_heating_control: Controls visibility of the temp controls
 
-input_number.homio_thermostat_target_temperature: Stores the temperature to be sent
+input_number.homio_thermostat_target_temperature: Stores the temperature to be sent in a helper which reacts much quicker on tap and only fires one service call to update the actual entity target temperature once the set button is triggered.
 
 Example
 
@@ -538,7 +523,7 @@ The dashboard is located here /config/dashboards/homio/homio.yaml
 
 Make sure to add the below on the first line of any dashboard you create
 
-button_card_templates: !include_dir_merge_named /config/dashboards/templates/button_cards
+**button_card_templates: !include_dir_merge_named /config/dashboards/templates/button_cards**
 
 
 ```
