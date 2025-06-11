@@ -40,6 +40,8 @@ This card need to be installed here
 
 /www/community/layout-card-modified/layout-card-modified.js
 
+slider v2 by AnthonMS - https://github.com/AnthonMS/my-cards/tree/main
+
 
 ## 📁 Folder Structure
 
