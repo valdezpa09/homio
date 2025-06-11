@@ -41,6 +41,10 @@ This card need to be installed here:
 
 **my-slider-v2 by AnthonMS** - https://github.com/AnthonMS/my-cards/tree/main
 
+This card need to be installed here
+
+**/local/community/light-slider/my-slider-v2.js"**
+
 
 ## 📁 Folder Structure
 
