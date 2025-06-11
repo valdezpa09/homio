@@ -6,6 +6,8 @@ Desktop/Tablet view
 
 <img width="1512" alt="Screenshot 2025-06-11 at 22 04 05" src="https://github.com/user-attachments/assets/0c904899-f970-4fbe-9e13-64b069ffc126" />
 <img width="1511" alt="Screenshot 2025-06-11 at 22 04 19" src="https://github.com/user-attachments/assets/36b5c8b3-1943-4d3b-9e3f-a066236cfec3" />
+<img width="1483" alt="Screenshot 2025-06-11 at 22 09 22" src="https://github.com/user-attachments/assets/b2780ae6-e3f0-4ac8-a7c7-5f5c82e8b3d1" />
+
 
 Mobile view
 
