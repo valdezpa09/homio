@@ -129,3 +129,244 @@ These are used for visual cues like heating, doors, or lights. You can reference
 ```
 entity_picture: /local/images/Homio/icons/heating.svg
 ```
+
+## **Layout Cards**
+
+🧱 Layout Configuration
+Homio uses a consistent layout across all dashboards powered by custom:layout-card (modified version required – see Setup Requirements). The layout file handles page sizing, grid setup, and responsive breakpoints.
+
+📁 Location
+The layout file lives here:
+
+```
+/config/dashboards/templates/includes/layouts/homio_screen_layout.yaml
+```
+
+**homio_screen_layout**
+Here’s what’s inside the layout file:
+
+```
+layout:
+  grid-template-columns: 1fr
+  grid-column-gap: 0px
+  margin: 0
+  height: 100vh
+  position: relative
+```
+
+This layout ensures a single-column responsive grid and full-height display.
+
+📋 Usage Example
+Use the layout in your dashboard YAML like this:
+
+```
+- type: custom:grid-layout
+  title: lounge
+  path: lounge
+  layout: !include /config/dashboards/templates/includes/layouts/homio_screen_layout.yaml
+  cards:
+    - type: custom:button-card
+      template:
+        - homio_room
+      name: Lounge
+      variables:
+        image: lounge
+        temperature: sensor.lounge_temperature
+        humidity: sensor.lounge_humidity
+        show_temp: true
+        show_humid: true
+```
+
+**homio_entity_layout**
+
+The homio_entity_layout.yaml is a layout include file designed to make placing entity cards in a consistent, responsive layout easy. It handles spacing, responsive column counts, and layout switching for mobile views.
+
+You don’t need to touch this file — just include it where you want a grid of homio_entity cards (or other custom buttons) to appear.
+
+💡 Features
+Horizontal scroll layout on large screens
+
+Responsive grid (2 columns) on tablets
+
+Stacked layout (1 column) on mobile
+
+Scroll snap and animation-friendly
+
+Fully reusable via !include
+
+🛠️ Usage Example
+
+```
+- type: custom:layout-card
+  layout_type: custom:grid-layout
+  layout: !include /config/dashboards/templates/includes/homio_entity_layout.yaml
+  cards:
+    - type: custom:button-card
+      template: homio_entity
+      entity: binary_sensor.front_door
+      name: Front Door
+      variables:
+        icon: door
+    - type: custom:button-card
+      template: homio_entity
+      entity: binary_sensor.windows
+      name: Windows
+      variables:
+        icon: window
+    - type: custom:button-card
+      template: homio_entity
+      entity: binary_sensor.motion
+      name: Motion
+      variables:
+        icon: motion
+```
+
+**homio_navigation.yaml**
+
+This file builds the Homio Navigation Bar, automatically adapting to desktop and mobile devices. It includes the logo, navigation links, and current time display — all styled to match the Homio theme. You don’t need to touch this file
+
+🧱 File Structure Overview
+
+```
+type: vertical-stack
+cards:
+  - type: conditional
+    conditions: # Desktop navigation
+      - condition: screen
+        media_query: "(min-width: 1250px)"
+    card:
+      type: custom:layout-card
+      layout_type: custom:grid-layout
+      layout:
+        grid-template-columns: max-content 1fr max-content
+        margin: 0 8vw
+        position: absolute
+        inset: 60px 0 auto 0
+      cards:
+        - type: custom:button-card
+          template: homio_logo
+        - type: custom:layout-card
+          layout_type: custom:grid-layout
+          layout:
+            grid-auto-flow: column
+            place-content: center
+            grid-column-gap: 50px
+          cards: !include /config/dashboards/templates/includes/homio_navigation_list.yaml
+        - type: custom:button-card
+          template: homio_time
+
+  - type: conditional
+    conditions: # Mobile drawer
+      - condition: screen
+        media_query: "(max-width: 1249px)"
+      - condition: state
+        entity: input_boolean.homio_mobile_navigation
+        state: "on"
+    card:
+      type: custom:layout-card
+      layout_type: custom:grid-layout
+      layout:
+        grid-template-columns: 1fr
+        height: 100vh
+        width: 250px
+        margin: 0
+        padding: 0 0 0 60px
+        inset: 0 auto auto 0
+        background: rgba(255,255,255,0.1)
+        backdrop-filter: blur(15px)
+      cards:
+        - type: custom:button-card
+          template: homio_logo
+        - type: custom:layout-card
+          layout_type: custom:grid-layout
+          layout:
+            grid-auto-flow: row
+            grid-row-gap: 30px
+          cards: !include ../includes/homio_navigation_list.yaml
+        - type: custom:button-card
+          template: homio_time
+```
+
+🧩 Related Files Required
+Make sure the following exists
+
+/config/dashboards/templates/includes/homio_logo.yaml	- **Renders the Homio logo as a button card**
+/config/dashboards/templates/includes/homio_time.yaml -	**Displays the current time**
+/config/dashboards/templates/includes/homio_navigation_list.yaml - **Holds navigation items (icons/links)**
+input_boolean.homio_mobile_navigation (Helper) -	**Toggles mobile drawer visibility**
+
+**homio_navigation_list.yaml**
+
+This file contains the individual navigation buttons used in the top and side navigation bars. Each button links to a different Homio room/dashboard screen.
+
+⚠️ Recommendation: Keep it to 8 or fewer links for the best layout on larger screens. You only need to change the label and path to what ever your dashboard for that room is called
+
+```
+- type: custom:button-card
+  template:
+    - homio_nav_link
+  label: room1
+  variables:
+    path: /dashboard-homio/room1
+
+- type: custom:button-card
+  template:
+    - homio_nav_link
+  label: room2
+  variables:
+    path: /dashboard-homio/room2
+
+- type: custom:button-card
+  template:
+    - homio_nav_link
+  label: room3
+  variables:
+    path: /dashboard-homio/room3
+
+- type: custom:button-card
+  template:
+    - homio_nav_link
+  label: room4
+  variables:
+    path: /dashboard-homio/room4
+
+- type: custom:button-card
+  template:
+    - homio_nav_link
+  label: room5
+  variables:
+    path: /dashboard-homio/room5
+
+- type: custom:button-card
+  template:
+    - homio_nav_link
+  label: room6
+  variables:
+    path: /dashboard-homio/room6
+
+- type: custom:button-card
+  template:
+    - homio_nav_link
+  label: room7
+  variables:
+    path: /dashboard-homio/room7
+
+- type: custom:button-card
+  template:
+    - homio_nav_link
+  label: room8
+  variables:
+    path: /dashboard-homio/room8
+
+```
+
+
+
+
+
+
+
+
+
+
+
