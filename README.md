@@ -712,11 +712,19 @@ Temperature and humidity status shown at the bottom.
 ### **homio_light**
 
 <img width="262" alt="Screenshot 2025-06-12 at 11 15 02" src="https://github.com/user-attachments/assets/b47d8a7f-7c14-4960-9e0b-2e3f1fe78ed1" />
+<img width="262" alt="Screenshot 2025-06-12 at 20 59 41" src="https://github.com/user-attachments/assets/bd94aca3-e897-4295-87e5-b00c7958390d" />
+
 
 
 The homio_light template extends homio_entity to provide dynamic control and status display for light entities. It includes a built-in brightness percentage readout and an animated slider (using my-slider-v2) for seamless brightness adjustment.
 
 Make sure to use the template named homio_light for the custom button card,
+
+### `Variables`
+
+| Variable         | Default        | Description                                                                 |
+|------------------|----------------|-----------------------------------------------------------------------------|
+| `show_last_on`   |  `false`       | Shows the duration the light has been powered off                           |
 
 Key Features
 
