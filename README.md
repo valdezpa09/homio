@@ -11,7 +11,7 @@ Desktop/Tablet view
 
 Mobile view
 
-<img width="573" alt="Screenshot 2025-06-11 at 22 04 36" src="https://github.com/user-attachments/assets/9d4c8201-dd9d-4912-ba34-7ccf24d0a750" />
+<img width="572" alt="Screenshot 2025-06-12 at 11 25 53" src="https://github.com/user-attachments/assets/3be316dd-c7a2-4592-979e-6147084c3cc0" />
 <img width="572" alt="Screenshot 2025-06-11 at 22 08 10" src="https://github.com/user-attachments/assets/5718134e-4ca3-4247-adf0-8a170d70cc6b" />
 
 
