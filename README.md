@@ -380,7 +380,7 @@ cards:
 
 ### **homio_navigation_list**
 
-This file contains the individual navigation buttons used in the top and side navigation bars. Each button links to a different Homio room/dashboard screen. You will need to edit this file to display the named links you require in your navigation. Keep it to 8 or fewer links for the best layout on larger screens. You only need to change the label for the name of the link and the path link to point it to the correct dashboard for a particular room.
+This file contains the individual navigation buttons used in the top and side navigation bars. Each button links to a different Homio room/dashboard screen. You will need to edit this file to display the named links you require in your navigation. Keep it to 9 or fewer links for the best layout on larger screens. You only need to change the label for the name of the link and the path link to point it to the correct dashboard for a particular room.
 
 **Example**
 
