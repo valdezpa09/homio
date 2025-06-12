@@ -1,4 +1,4 @@
-## **👋 Welcome to Homio**
+## ** 🏠 Welcome to Homio**
 
 Homio is a clean, minimal, and fully YAML-based dashboard for Home Assistant that i build for a bit of fun. It's still work in progress but wanted to share it with you after receiving many requests for it. It’s built with tablets in mind — perfect for a wall-mounted screen — but it also works well on mobile thanks to its responsive layout. Everything is done in YAML to give you full control and make it easier to share, reuse, and tweak. I recommend to use the visual studio code editor plugin in home assistant to make coding that little bit easier.
 
@@ -13,7 +13,6 @@ Mobile view
 
 <img width="573" alt="Screenshot 2025-06-11 at 22 04 36" src="https://github.com/user-attachments/assets/9d4c8201-dd9d-4912-ba34-7ccf24d0a750" />
 <img width="572" alt="Screenshot 2025-06-11 at 22 08 10" src="https://github.com/user-attachments/assets/5718134e-4ca3-4247-adf0-8a170d70cc6b" />
-
 
 
 ## **Getting Started**
@@ -35,23 +34,39 @@ lovelace:
       filename: dashboards/homio/homio.yaml
 ```
 
-3. A Few Custom Cards
-Homio uses a couple of custom cards.
+2. A Few Custom Cards
+Homio uses a couple of custom cards,
 
-**button-card by Romraider** — https://github.com/custom-cards/button-card  - This is the main building block of Homio. Install it via HCS
+1. **button-card by Romraider** — https://github.com/custom-cards/button-card  - This is the main building block of Homio. Install it via HCS.
 
-**layout-card by Thomas Loven** — https://github.com/thomasloven/lovelace-layout-card - You’ll need to actually use the slightly modified version included in this repo based on the layout-card by Thomas Loven **https://github.com/iamtherufus/Homio/blob/main/layout-card-modified.js** which supports some extra CSS properties. Dont install this card via HACS, grab it from the repo.
+2. **layout-card by Thomas Loven** — https://github.com/thomasloven/lovelace-layout-card - You’ll need to actually use the slightly modified version included in this repo based on the layout-card by Thomas Loven **https://github.com/iamtherufus/Homio/blob/main/layout-card-modified.js** which supports some extra CSS properties. Dont install this card via HACS, grab it from the repo.
 
-This card need to be installed in this location
+This card need to be installed in this location,
 
 **/www/community/layout-card-modified/layout-card-modified.js**
 
-**my-slider-v2 by AnthonMS** - This is a fantastic light slider created by AnthonMS which is used for the homio_light card brightness slider. Full details on his configuration can be found here.
-https://github.com/AnthonMS/my-cards/blob/main/docs/cards/slider-v2.md
+3. **my-slider-v2 by AnthonMS** - This is a fantastic light slider created by AnthonMS which is used for the homio_light card brightness slider. Full details on his configuration can be found here.
+**https://github.com/AnthonMS/my-cards/blob/main/docs/cards/slider-v2.md**
 
-This card need to be installed here
+This card need to be installed here,
 
 **/local/community/light-slider/my-slider-v2.js**
+
+If you install either the layout-card-modified or my-slider-v2 to a different location that is ok but you must reference the location in the main home assistant configuration file under resources,
+
+```
+  resources:
+    - type: "module"
+      url: "/hacsfiles/button-card/button-card.js"
+    - type: "module"
+      url: "/hacsfiles/kiosk-mode/kiosk-mode.js"
+    - type: "module"
+      **url: "/local/community/layout-card-modified/layout-card-modified.js?v=12"**
+    - type: "module"
+      **url: "/local/community/light-slider/my-slider-v2.js"**
+    - type: "css"
+      url: "https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&display=swap"
+```
 
 
 ## 📁 Folder Structure
