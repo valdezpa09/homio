@@ -726,7 +726,7 @@ Make sure to use the template named homio_light for the custom button card,
 |------------------|----------------|-----------------------------------------------------------------------------|
 | `show_last_on`   |  `false`       | Shows the duration the light has been powered off                           |
 
-Key Features
+**Key Features**
 
 Shows brightness percentage when light is on.
 
@@ -818,6 +818,7 @@ views:
           - type: custom:button-card
             variables:
               icon: lamp
+              show_last_on: true
             template:
               - homio_light
             entity: light.hue_living_room_lamp
