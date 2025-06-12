@@ -60,7 +60,7 @@ homio_room:
         - bottom: 0
         - transform: |
             [[[
-              return states[variables.motion_sensor].state === "on"
+              return (variables.show_motion && states[variables.motion_sensor].state === "on")
                 ? "translateY(0)"
                 : "translateY(100%)";
             ]]]
