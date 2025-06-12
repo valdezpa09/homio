@@ -16,7 +16,7 @@ Mobile view
 
 
 
-## **✅ What You’ll Need**
+## **Getting Started**
 
 Please make sure to make a full backup of your current home assistant state, its just best practice. Before jumping in, make sure you’ve got the basics covered:
 
