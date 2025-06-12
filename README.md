@@ -1,6 +1,6 @@
 ## **👋 Welcome to Homio**
 
-Homio is a clean, minimal, and fully YAML-based dashboard for Home Assistant that i build for a bit of fun. It's still work in progress but wanted to share it with you after receiving many requests for it. It’s built with tablets in mind — perfect for a wall-mounted screen — but it also works well on mobile thanks to its responsive layout.
+Homio is a clean, minimal, and fully YAML-based dashboard for Home Assistant that i build for a bit of fun. It's still work in progress but wanted to share it with you after receiving many requests for it. It’s built with tablets in mind — perfect for a wall-mounted screen — but it also works well on mobile thanks to its responsive layout. Everything is done in YAML to give you full control and make it easier to share, reuse, and tweak. I recommend to use the visual studio code editor plugin in home assistant to make coding that little bit easier.
 
 Desktop/Tablet view
 
@@ -14,10 +14,6 @@ Mobile view
 <img width="573" alt="Screenshot 2025-06-11 at 22 04 36" src="https://github.com/user-attachments/assets/9d4c8201-dd9d-4912-ba34-7ccf24d0a750" />
 <img width="572" alt="Screenshot 2025-06-11 at 22 08 10" src="https://github.com/user-attachments/assets/5718134e-4ca3-4247-adf0-8a170d70cc6b" />
 
-
-
-
-Everything is done in YAML to give you full control and make it easier to share, reuse, and tweak. I recommend to use the visual studio code editor plugin in home assistant to make coding that little bit easier.
 
 
 ## **✅ What You’ll Need**
