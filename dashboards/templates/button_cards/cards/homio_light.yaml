@@ -1,6 +1,26 @@
 homio_light:
   template:
     - homio_entity
+  triggers_update:
+    - sensor.current_time
+  show_label: true
+  variables:
+    show_last_on: false
+  label: |
+    [[[
+      if (!variables.show_last_on) return null;
+      if (!entity.last_changed || entity.state !== 'off') return null;
+
+      const lastChanged = new Date(entity.last_changed);
+      const now = new Date();
+      const diffMs = now - lastChanged;
+      const diffMins = Math.floor(diffMs / 1000 / 60);
+      const diffHrs = Math.floor(diffMins / 60);
+
+      return diffMins < 60
+        ? `Last on ${diffMins} min${diffMins !== 1 ? 's' : ''} ago`
+        : `Last on ${diffHrs} hour${diffHrs !== 1 ? 's' : ''} ago`;
+    ]]]
   state_display: |
     [[[ if (entity.state === "on" && entity.attributes.brightness) 
       {return "Brightness - " + Math.round((entity.attributes.brightness / 255) * 100) +
@@ -21,6 +41,16 @@ homio_light:
         else return "none"
       ]]]
   styles:
+    label:
+      - position: absolute
+      - bottom: 25px
+      - font-size: 10px
+      - text-transform: uppercase
+      - color: white
+      - letter-spacing: 2px
+      - font-weight: 600
+      - opacity: 1
+      - justify-self: start
     custom_fields:
       light-slider:
         - position: absolute
