@@ -1,4 +1,4 @@
-## ** 🏠 Welcome to Homio**
+## **🏠 Welcome to Homio**
 
 Homio is a clean, minimal, and fully YAML-based dashboard for Home Assistant that i build for a bit of fun. It's still work in progress but wanted to share it with you after receiving many requests for it. It’s built with tablets in mind — perfect for a wall-mounted screen — but it also works well on mobile thanks to its responsive layout. Everything is done in YAML to give you full control and make it easier to share, reuse, and tweak. I recommend to use the visual studio code editor plugin in home assistant to make coding that little bit easier.
 
@@ -54,6 +54,7 @@ This card needs to be installed in this location,
 
 If you install either the layout-card-modified or my-slider-v2 to a different location that is ok but you must reference the location in the main home assistant configuration file under resources,
 
+**Example**
 ```
   resources:
     - type: "module"
@@ -71,7 +72,7 @@ If you install either the layout-card-modified or my-slider-v2 to a different lo
 
 ## 📁 Folder Structure
 
-Everything lives under `/config` in your Home Assistant setup:
+Everything lives under `/config` in your Home Assistant setup,
 
 ```text
 /config
@@ -145,15 +146,16 @@ www/
 ```
 
 🖼️ Room Backgrounds
-Place your .jpg files in:
+Place your .jpg files in,
 
+**Example**
 ```
 /config/www/images/Homio/rooms/
 ```
 
 Make sure the file names match what you use in the image variable in the homio_room template (without the file extension). 
 
-For example:
+**Example**:
 
 ```
 - type: 'custom:button-card'
@@ -169,8 +171,9 @@ For example:
 ```
 
 🧩 Icons
-Put your .svg icon files here:
+Put your .svg icon files here,
 
+**Example**
 ```
 /config/www/images/Homio/icons/
 ```
@@ -189,11 +192,13 @@ These are used for visual cues like heating, doors, or lights. You can reference
 
 ## **Layout Cards**
 
-Homio uses a consistent layout across all dashboards powered by custom:layout-card (modified version required – see Setup Requirements). The layout file handles page sizing, grid setup, and responsive breakpoints.
+Homio uses a consistent layout across all dashboards powered by custom:layout-card (modified version required – see Setup Requirements). The layout file handles page sizing, grid setup, and responsive breakpoints. The layout are 'yaml include' files so you wont actually need to edit most of these files. You will just have to reference them in one line of code which is much nicer than having to type out the full yaml code for it every single time.
 
+ 
 ### **homio_screen_layout**
-Here’s what’s inside the main screen layout file. This is used for each room dasboard.
+Here’s what’s inside the main screen layout file. This is used for each room dasboard you create,
 
+**Example**
 ```
 layout:
   grid-template-columns: 1fr
@@ -206,13 +211,14 @@ layout:
 This layout ensures a single-column responsive grid and full-height display.
 
 **Example**
+
 Use the layout in your dashboard YAML like this:
 
 ```
 - type: custom:grid-layout
   title: lounge
   path: lounge
-  layout: !include /config/dashboards/templates/includes/layouts/homio_screen_layout.yaml
+  layout: !include /config/dashboards/templates/includes/layouts/homio_screen_layout.yaml # This is the include line for the layout
   cards:
     - type: custom:button-card
       template:
@@ -226,11 +232,13 @@ Use the layout in your dashboard YAML like this:
         show_humid: true
 ```
 
-## **homio_entity_layout**
+### **homio_entity_layout**
 
-The homio enitiy layout is a layout include file designed to make placing entity cards in a consistent, responsive layout easy. It handles spacing, responsive column counts, and layout switching for mobile views.
+The homio_enitiy_layout is designed to make placing entity cards in a consistent, responsive layout easy. It handles spacing, responsive column counts, and layout switching for mobile views.
 
-You don’t need to touch this file — just include it where you want a grid of homio_entity cards (or other custom buttons) to appear. However if you want vertical scroll on mobile for your entities make sure to uncomment the media query section in the below example
+You don’t need to touch this file — just include it where you want a grid of homio_entity cards (or other custom buttons) to appear. However if you want vertical scroll on mobile for your entities make sure to uncomment the media query section.
+
+**Example**
 
 ```
 position: absolute
@@ -264,23 +272,23 @@ mediaquery:
   #   inset: auto
 ```
 
-**Features**
+The key features of this are,
+
 Horizontal scroll layout on large screens
 
 Responsive grid (2 columns) on tablets
 
 Stacked layout (1 column) on mobile
 
-Scroll snap and animation-friendly
+Scroll snap and animation-friendly for horizontal scrolling
 
-Fully reusable via !include
 
 **Example**
 
 ```
 - type: custom:layout-card
   layout_type: custom:grid-layout
-  layout: !include /config/dashboards/templates/includes/homio_entity_layout.yaml
+  layout: !include /config/dashboards/templates/includes/homio_entity_layout.yaml # This is the include line for the layout
   cards:
     - type: custom:button-card
       template: homio_entity
@@ -302,11 +310,11 @@ Fully reusable via !include
         icon: motion
 ```
 
-## **homio_navigation**
+### **homio_navigation**
 
-This file builds the Homio Navigation Bar, automatically adapting to desktop and mobile devices. It includes the logo, navigation links, and current time display — all styled to match the Homio theme. You don’t need to touch this file
+This file builds the Homio Navigation Bar, automatically adapting to desktop and mobile devices. It includes the logo, navigation links, and current time display — all styled to match the Homio theme. You don’t need to touch this file. It includes the actual navigation list of items which is held in another yaml include file which will be outlined in the docs.
 
-**File Structure Overview**
+**Example code**
 
 ```
 type: vertical-stack
@@ -332,7 +340,7 @@ cards:
             grid-auto-flow: column
             place-content: center
             grid-column-gap: 50px
-          cards: !include /config/dashboards/templates/includes/homio_navigation_list.yaml
+          cards: !include ../includes/homio_navigation_list.yaml
         - type: custom:button-card
           template: homio_time
 
