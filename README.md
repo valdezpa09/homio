@@ -64,7 +64,7 @@ If you install either the layout-card-modified or my-slider-v2 to a different lo
     - type: "module"
       url: "/local/community/layout-card-modified/layout-card-modified.js?v=12" **IMPORTANT**
     - type: "module"
-      `url: "/local/community/light-slider/my-slider-v2.js"` **IMPORTANT**
+      url: "/local/community/light-slider/my-slider-v2.js" **IMPORTANT**
     - type: "css"
       url: "https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&display=swap"
 ```
