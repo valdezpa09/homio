@@ -15,7 +15,7 @@ Mobile view
 <img width="572" alt="Screenshot 2025-06-11 at 22 08 10" src="https://github.com/user-attachments/assets/5718134e-4ca3-4247-adf0-8a170d70cc6b" />
 
 
-## **Getting Started**
+## 🚀 **Getting Started**
 
 Please make sure to make a full backup of your current home assistant state, its just best practice. Before jumping in, make sure you’ve got the basics covered:
 
@@ -37,18 +37,18 @@ lovelace:
 2. A Few Custom Cards
 Homio uses a couple of custom cards,
 
-1. **button-card by Romraider** — https://github.com/custom-cards/button-card  - This is the main building block of Homio. Install it via HCS.
+**button-card by Romraider** — https://github.com/custom-cards/button-card  - This is the main building block of Homio. Install it via HCS.
 
-2. **layout-card by Thomas Loven** — https://github.com/thomasloven/lovelace-layout-card - You’ll need to actually use the slightly modified version included in this repo based on the layout-card by Thomas Loven **https://github.com/iamtherufus/Homio/blob/main/layout-card-modified.js** which supports some extra CSS properties. Dont install this card via HACS, grab it from the repo.
+**layout-card by Thomas Loven** — https://github.com/thomasloven/lovelace-layout-card - You’ll need to actually use the slightly modified version included in this repo based on the layout-card by Thomas Loven              **https://github.com/iamtherufus/Homio/blob/main/layout-card-modified.js** which supports some extra CSS properties. Dont install this card via HACS, grab it from the repo.
 
-This card need to be installed in this location,
+This card needs to be installed in this location,
 
 **/www/community/layout-card-modified/layout-card-modified.js**
 
-3. **my-slider-v2 by AnthonMS** - This is a fantastic light slider created by AnthonMS which is used for the homio_light card brightness slider. Full details on his configuration can be found here.
-**https://github.com/AnthonMS/my-cards/blob/main/docs/cards/slider-v2.md**
+**my-slider-v2 by AnthonMS** - This is a fantastic light slider created by AnthonMS which is used for the homio_light card brightness slider. Full details on his configuration can be found here.
+     **https://github.com/AnthonMS/my-cards/blob/main/docs/cards/slider-v2.md**
 
-This card need to be installed here,
+This card needs to be installed in this location,
 
 **/local/community/light-slider/my-slider-v2.js**
 
@@ -61,9 +61,9 @@ If you install either the layout-card-modified or my-slider-v2 to a different lo
     - type: "module"
       url: "/hacsfiles/kiosk-mode/kiosk-mode.js"
     - type: "module"
-      url: "/local/community/layout-card-modified/layout-card-modified.js?v=12"
+      url: "/local/community/layout-card-modified/layout-card-modified.js?v=12" **IMPORTANT**
     - type: "module"
-      `url: "/local/community/light-slider/my-slider-v2.js"` **important**
+      `url: "/local/community/light-slider/my-slider-v2.js"` **IMPORTANT**
     - type: "css"
       url: "https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&display=swap"
 ```
@@ -86,7 +86,7 @@ Everything lives under `/config` in your Home Assistant setup:
 │   │   │   └── cards/                   # Entity-specific cards like homio_light, homio_thermostat
 │   │   └── includes/
 │   │       ├── layouts/                # Layouts like homio_navigation.yaml
-│   │       └── rooms/                  # Optional: room-specific cards
+│  
 │
 ├── packages/
 │   └── homio_helpers.yaml              # All required helpers (input_booleans, numbers, etc.)
@@ -126,9 +126,9 @@ Everything lives under `/config` in your Home Assistant setup:
 
 ## **🖼️ Assets Setup – Images & Icons**
 
-To make Homio look the way it’s intended, you’ll need to add your own room images and icons to the www folder in Home Assistant. These are used for things like room backgrounds and custom icons inside button cards. I dont use the built in mdi icons as i dont like them, i do use the material icons though but download them from google at the 100 weight as i feel they fitted my design better. I will include these in the repo and i plan to keep adding to them as well.
+To make Homio look the way it’s intended, you’ll need to add your own room images and icons to the www folder in Home Assistant. These are used for things like room backgrounds and custom icons inside button cards. I dont use the built in mdi icons as i dont like them, they are to bold for my liking. There are other HACS addons that you can use but i dont. I do use the google material icons though but download them from google at the 100 weight as i feel they fitted my design better. I will include these in the repo and i plan to keep adding to them as well.
 
-Material design icons: 
+Material design icons link can be found below, 
 
 **https://fonts.google.com/icons?icon.query=light**
 
@@ -151,12 +151,21 @@ Place your .jpg files in:
 /config/www/images/Homio/rooms/
 ```
 
-Make sure the file names match what you use in the image: variable in the homio_room template (without the file extension). 
+Make sure the file names match what you use in the image variable in the homio_room template (without the file extension). 
 
 For example:
 
 ```
-image: living_room  # Will load living_room.jpg
+- type: 'custom:button-card'
+  variables:
+    image: lounge # Will load lounge.jpg from the directory www/images/homio/room
+    image_position: center center
+    show_humid: true
+    humid_sensor: sensor.living_room_sensor_humidity
+    show_temp: true
+    temp_sensor: sensor.living_room_sensor_temperature
+    show_motion: true
+    motion_sensor: binary_sensor.hue_motion_sensor_living_room
 ```
 
 🧩 Icons
@@ -169,14 +178,20 @@ Put your .svg icon files here:
 These are used for visual cues like heating, doors, or lights. You can reference them with:
 
 ```
-entity_picture: /local/images/Homio/icons/heating.svg
+- type: 'custom:button-card'
+  variables:
+    icon: lamp # Will load lamp.svg from the directory www/images/homio/icons
+  template:
+    - homio_light
+  entity: light.hue_living_room_lamp 
+  name: Lamp
 ```
 
 ## **Layout Cards**
 
 Homio uses a consistent layout across all dashboards powered by custom:layout-card (modified version required – see Setup Requirements). The layout file handles page sizing, grid setup, and responsive breakpoints.
 
-## **homio_screen_layout**
+### **homio_screen_layout**
 Here’s what’s inside the main screen layout file. This is used for each room dasboard.
 
 ```
