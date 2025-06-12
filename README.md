@@ -749,7 +749,9 @@ The homio thermostat template brings smart control to your heating setup. It com
 
 Make sure to use the template named homio_thermostat for the custom button card,
 
-Required Helpers & Setup
+**Required Helpers & Setup**
+
+The below two helper files are included in the packages folder in the repo that sit at the root level of the /config folder.
 
 input_boolean.homio_heating_control: Controls visibility of the temp controls when the entity is tapped.
 
