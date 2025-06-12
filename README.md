@@ -190,11 +190,13 @@ These are used for visual cues like heating, doors, or lights. You can reference
   name: Lamp
 ```
 
-## **Layout Cards**
+## 🧱**Layout Cards**
 
-Homio uses a consistent layout across all dashboards powered by custom:layout-card (modified version required – see Setup Requirements). The layout file handles page sizing, grid setup, and responsive breakpoints. The layout are 'yaml include' files so you wont actually need to edit most of these files. You will just have to reference them in one line of code which is much nicer than having to type out the full yaml code for it every single time.
+Homio uses a consistent layout across all dashboards powered by custom:layout-card (modified version required – see Setup Requirements). The layout file handles page sizing, grid setup, and responsive breakpoints. The layout are 'yaml include' files so you wont actually need to edit most of these files. You will just have to reference them in one line of code which is much nicer than having to type out the full yaml code for it every single time. 
 
- 
+The files are found in the following directory,
+**/config/dashboards/templates/includes**
+
 ### **homio_screen_layout**
 Here’s what’s inside the main screen layout file. This is used for each room dasboard you create,
 
@@ -376,11 +378,9 @@ cards:
           template: homio_time
 ```
 
-## **homio_navigation_list**
+### **homio_navigation_list**
 
-This file contains the individual navigation buttons used in the top and side navigation bars. Each button links to a different Homio room/dashboard screen.
-
-Keep it to 8 or fewer links for the best layout on larger screens. You only need to change the label and path to what ever your dashboard for that room is called
+This file contains the individual navigation buttons used in the top and side navigation bars. Each button links to a different Homio room/dashboard screen. You will need to edit this file to display the named links you require in your navigation. Keep it to 8 or fewer links for the best layout on larger screens. You only need to change the label for the name of the link and the path link to point it to the correct dashboard for a particular room.
 
 **Example**
 
@@ -443,14 +443,15 @@ Keep it to 8 or fewer links for the best layout on larger screens. You only need
 
 ```
 
-## **Base cards**
+## **Button cards**
 
-A few base cards that you wont need to touch but just so you know what they are doing
+These are split into two catergories, base and cards. Both of these dont really need to be touched, they just hold all the styles for the relvant cards. The base directory cards are for generic cards such as time etc and the cards directory is for enitiy cards.
 
-## **homio_default**
+### **homio_default**
 
-This is the foundational button card template used across most components. It sets consistent styles like font, layout and background effects
+This is the foundational button card template used across most components. It sets consistent styles like font, layout and the fade in background effects when going between dashboards.
 
+**Example**
 ```
 homio_default:
   styles:
@@ -475,10 +476,11 @@ homio_default:
 
 ```
 
-## **homio_entity**
+### **homio_entity**
 
 This template extends homio_default and is used for entity status cards such as lights, climate status, water, motion, doors, windows, etc. It’s clean, responsive, and visually consistent across different types of entities.
 
+**Example**
 ```
 homio_entity:
   template:
@@ -500,6 +502,70 @@ homio_entity:
       - height: 22px
 ```
 
+### **homio_logo**
+
+This is a small code to style the logo in the navigation bar,
+
+**Example**
+```
+homio_logo:
+  template:
+    - homio_default
+  tap_action:
+    action: navigate
+    navigation_path: /dashboard-homio/home
+  name: Homio.
+  styles:
+    name:
+      - color: var(--primary-text-color)
+      - letter-spacing: 2px
+      - font-size: 18px
+      - font-weight: 700
+      - text-transform: uppercase
+      - justify-self: start
+    card:
+      - background: transparent
+      - pointer-events: all
+```
+### **homio_menu_icon**
+
+This is the burger menu that will appear on screen sizes less than 1249px wide. This toggles the helper homio_mobile_navigation which will show and hide the navigation.
+
+**Example**
+```
+homio_menu_icon:
+  show_entity_picture: true
+  entity_picture: |
+    [[[
+      if (states["input_boolean.homio_mobile_navigation"].state === "on") {
+        return "/local/images/Homio/icons/close.svg";
+      } else {
+        return "/local/images/Homio/icons/menu.svg";
+      }
+    ]]]
+  tap_action:
+    action: call-service
+    service: input_boolean.toggle
+    service_data:
+      entity_id: input_boolean.homio_mobile_navigation
+  styles:
+    card:
+      - background: transparent
+      - display: none
+      - pointer-events: all
+      - cursor: pointer
+    img_cell:
+      - width: 25px
+    icon:
+      - width: 100%
+      - height: 100%
+  extra_styles: |
+    @media (max-width: 1249px) {
+      .button-card-main {
+          display: block !important;
+        }
+      }
+```
 ## **Main Cards**
 
 These are currently the cards I have setup, there are more to come in the future.
