@@ -661,6 +661,9 @@ There are more to come in the future that i am currently building.
 
 ### **homio_room**
 
+<img width="1482" alt="Screenshot 2025-06-12 at 11 16 22" src="https://github.com/user-attachments/assets/e0a7dacf-6e47-4f03-96c4-c9cee3ec2bc9" />
+
+
 The homio room card acts as the top visual banner for each room or area on your dashboard. It typically includes a large background image, room name, temperature/humidity readouts, and optional motion detection feedback.
 
 This card is intended to be used once per room dashboard, placed at the top for an immersive overview.
@@ -708,6 +711,9 @@ Temperature and humidity status shown at the bottom.
 
 ### **homio_light**
 
+<img width="262" alt="Screenshot 2025-06-12 at 11 15 02" src="https://github.com/user-attachments/assets/b47d8a7f-7c14-4960-9e0b-2e3f1fe78ed1" />
+
+
 The homio_light template extends homio_entity to provide dynamic control and status display for light entities. It includes a built-in brightness percentage readout and an animated slider (using my-slider-v2) for seamless brightness adjustment.
 
 Make sure to use the template named homio_light for the custom button card,
@@ -734,6 +740,10 @@ Animated brightness slider appears only when light is on.
 my-slider-v2 must be installed via HACS or manually, and the resource must be included in your Lovelace configuration.
 
 ### **homio_thermostat**
+
+<img width="260" alt="Screenshot 2025-06-12 at 11 15 16" src="https://github.com/user-attachments/assets/323bff09-3bbb-405a-ba4a-28c23c6c4021" />
+<img width="260" alt="Screenshot 2025-06-12 at 11 15 25" src="https://github.com/user-attachments/assets/39a8330b-ef0e-423a-8d72-a21e482c8a57" />
+
 
 The homio thermostat template brings smart control to your heating setup. It combines HVAC mode switching, target temperature setting, and a clean display layout using only button-card and layout-card components.
 
