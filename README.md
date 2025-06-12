@@ -276,13 +276,13 @@ mediaquery:
 
 The key features of this are,
 
-Horizontal scroll layout on large screens
+- Horizontal scroll layout on large screens
 
-Responsive grid (2 columns) on tablets
+- Responsive grid (2 columns) on tablets
 
-Stacked layout (1 column) on mobile
+- Stacked layout (1 column) on mobile
 
-Scroll snap and animation-friendly for horizontal scrolling
+- Scroll snap and animation-friendly for horizontal scrolling
 
 
 **Example**
@@ -566,11 +566,100 @@ homio_menu_icon:
         }
       }
 ```
-## **Main Cards**
 
-These are currently the cards I have setup, there are more to come in the future.
+### **homio_mobile_logo**
 
-## **homio_room**
+This is the logo that will appear when the screen size is under 1249px, the main logo is part of the navigation that will be hidden unless toggles on so this replaces that until the navigation is opened when it will then dissapear.
+
+**Example**
+```
+homio_mobile_logo:
+  name: Homio.
+  tap_action:
+    action: navigate
+    navigation_path: /dashboard-homioy/home
+  styles:
+    name:
+      - color: var(--primary-text-color)
+      - letter-spacing: 2px
+      - font-size: 18px
+      - font-weight: 700
+      - text-transform: uppercase
+      - justify-self: start
+    card:
+      - background: transparent
+      - pointer-events: all
+      - display: |
+          [[[
+            if (states["input_boolean.homio_mobile_navigation"].state === "on") {
+              return "none";
+            } else {
+              return "block";
+            }
+          ]]]
+```
+
+### **homio_nav_button**
+
+This is what will navigate your navigation links to the path you specified in the homio_navigation_links include file.
+
+**Example**
+```
+homio_nav_button:
+  template:
+    - homio_default
+  tap_action:
+    action: navigate
+    navigation_path: "[[[ return variables.path ]]]"
+  styles:
+    name:
+      - color: var(--primary-text-color)
+      - font-size: 16px
+      - font-weight: 700
+      - border-bottom: >
+          [[[ if(variables.path === window.location.pathname) {return "2px solid
+          white"} else {return "none"} ]]]
+      - justify-self: start
+    card:
+      - background: transparent
+      - pointer-events: all
+```
+
+### **homio_time**
+
+This sits in the main navigation and just pulls the current time for the sensor created in the sensors.yaml file in the root of the /config folder
+
+**Example**
+```
+homio_time:
+  template:
+    - homio_default
+  name: |
+    [[[ 
+        return states["sensor.current_time"].state
+    ]]]
+  styles:
+    name:
+      - color: var(--primary-text-color)
+      - letter-spacing: 1px
+      - font-size: 16px
+      - text-transform: uppercase
+      - font-weight: 700
+      - justify-self: start
+    card:
+      - background: transparent
+```
+
+## **Entity Cards**
+
+These are currently the cards I have setup,
+- Room card
+- Light card
+- Thermostat card
+  
+There are more to come in the future that i am currently building.
+
+### **homio_room**
 
 The homio room card acts as the top visual banner for each room or area on your dashboard. It typically includes a large background image, room name, temperature/humidity readouts, and optional motion detection feedback.
 
@@ -599,7 +688,7 @@ Make sure to use the template named homio_room for the custom button card as per
   template: homio_room
   name: Living Room
   variables:
-    image: living_room
+    image: lounge
     image_position: center center
     show_motion: true
     motion_sensor: binary_sensor.living_room_motion
@@ -611,28 +700,29 @@ Make sure to use the template named homio_room for the custom button card as per
 
 This will display a room card titled Living Room with:
 
-Background image: /local/images/Homio/rooms/living_room.jpg
+Background image: /local/images/Homio/rooms/lounge.jpg
 
 Motion banner when motion is detected.
 
 Temperature and humidity status shown at the bottom.
 
-## **homio_light**
+### **homio_light**
 
 The homio_light template extends homio_entity to provide dynamic control and status display for light entities. It includes a built-in brightness percentage readout and an animated slider (using my-slider-v2) for seamless brightness adjustment.
 
-Make sure to use the template named homio_light for the custom button card as per the example below
+Make sure to use the template named homio_light for the custom button card,
 
-**Features**
+Key Features
+
 Shows brightness percentage when light is on.
 
-Tap toggles light on only (off handled via hold).
+Tap toggles light on only (off handled via hold or turning the brightness down to 0).
 
 Hold toggles light off.
 
 Animated brightness slider appears only when light is on.
 
-Example
+**Example**
 ```
 - type: custom:button-card
   template: homio_light
@@ -641,32 +731,21 @@ Example
   variables:
     icon: ceiling
 ```
-
-This will show:
-
-A light icon (optional custom via icon variable),
-
-"Brightness - 78%" when light is on,
-
-"Off" when light is off,
-
-A horizontal slider for brightness control when light is on.
-
 my-slider-v2 must be installed via HACS or manually, and the resource must be included in your Lovelace configuration.
 
-## **homio_thermostat**
+### **homio_thermostat**
 
 The homio thermostat template brings smart control to your heating setup. It combines HVAC mode switching, target temperature setting, and a clean display layout using only button-card and layout-card components.
 
-Make sure to use the template named homio_thermostat for the custom button card as per the example below
+Make sure to use the template named homio_thermostat for the custom button card,
 
 Required Helpers & Setup
 
-input_boolean.homio_heating_control: Controls visibility of the temp controls
+input_boolean.homio_heating_control: Controls visibility of the temp controls when the entity is tapped.
 
-input_number.homio_thermostat_target_temperature: Stores the temperature to be sent in a helper which reacts much quicker on tap and only fires one service call to update the actual entity target temperature once the set button is triggered when you have the desired temperature.
+input_number.homio_thermostat_target_temperature: Stores the temperature to be sent in a helper which reacts much quicker on tap and only fires one service call to update the actual entity target temperature once the set button is triggered when you have the desired temperature set.
 
-Example
+**Example**
 
 ```
 - type: custom:button-card
@@ -679,7 +758,7 @@ Example
 
 The dashboard is located here /config/dashboards/homio/homio.yaml
 
-Make sure to add the below on the first line of any dashboard you create
+Make sure to add the below on the first line of any dashboard you create,
 
 **button_card_templates: !include_dir_merge_named /config/dashboards/templates/button_cards**
 
