@@ -14,11 +14,3 @@ homio_mobile_logo:
     card:
       - background: transparent
       - pointer-events: all
-      - display: |
-          [[[
-            if (states["input_boolean.homio_mobile_navigation"].state === "on") {
-              return "none";
-            } else {
-              return "block";
-            }
-          ]]]
