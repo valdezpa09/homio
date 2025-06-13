@@ -1,9 +1,6 @@
 homio_light:
   template:
     - homio_entity
-  triggers_update:
-    - sensor.current_time
-  show_last_changed: true
   state_display: |
     [[[ if (entity.state === "on" && entity.attributes.brightness) 
       {return "Brightness - " + Math.round((entity.attributes.brightness / 255) * 100) +
