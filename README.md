@@ -85,7 +85,7 @@ lovelace:
   mode: yaml
 ```
 
-Make sure you the cards mentioned above ARE all included under manage resources as well. This can be found in the top right hand corner of a GUI dashboard by clicking the edit pencil then the 3 little dots then manage resources.
+Make sure you the cards mentioned above ARE all included under manage resources as well. This can be found in the top right hand corner of a GUI created dashboard by clicking the edit pencil then the 3 little dots then manage resources.
 
 ![image](https://github.com/user-attachments/assets/d9f153e2-b78a-49b0-bf9c-1b6c18b81d08)
 ![image](https://github.com/user-attachments/assets/89b39565-139c-4bff-b256-a563726882c8)
