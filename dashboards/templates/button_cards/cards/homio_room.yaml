@@ -107,6 +107,14 @@ homio_room:
         - top: 60px
         - left: 8vw
         - z-index: 999
+        - display: |
+            [[[
+              if (states["input_boolean.homio_mobile_navigation"].state === "on") {
+                return "none";
+              } else {
+                return "block";
+              }
+            ]]]
       mobile_menu_icon:
         - position: absolute
         - top: 60px
