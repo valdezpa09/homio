@@ -720,12 +720,6 @@ The homio_light template extends homio_entity to provide dynamic control and sta
 
 Make sure to use the template named homio_light for the custom button card,
 
-### `Variables`
-
-| Variable         | Default        | Description                                                                 |
-|------------------|----------------|-----------------------------------------------------------------------------|
-| `show_last_on`   |  `false`       | Shows the duration the light has been powered off                           |
-
 **Key Features**
 
 Shows brightness percentage when light is on.
