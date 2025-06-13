@@ -52,7 +52,7 @@ This card needs to be installed in this location,
 
 **/local/community/light-slider/my-slider-v2.js**
 
-If you install either the layout-card-modified or my-slider-v2 to a different location that is ok but you must reference the location in the main home assistant configuration file under resources,
+If you install either the layout-card-modified or my-slider-v2 to a different location that is ok but you must reference the location in the main home assistant configuration file /config/configuation.yaml under resources,
 
 **Example**
 ```
@@ -68,6 +68,28 @@ If you install either the layout-card-modified or my-slider-v2 to a different lo
     - type: "css"
       url: "https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&display=swap"
 ```
+
+**UPDATE WARNING**
+
+Because we are putting lovelace into 'Storage' mode to protect previously created GUI dashboards,
+
+```
+lovelace:
+  mode: storage
+```
+
+Home Assistant will still look in the manage resources location found in the GUI interface for any custom cards installed. If storage mode was set to YAML, this would not be an issue.
+
+```
+lovelace:
+  mode: yaml
+```
+
+Make sure you the cards mentioned above ARE all included under manage resources. This can be found in the top right hand corner of a GUI dashboard by clicking the edit pencil then the 3 little dots then manage resources.
+
+![image](https://github.com/user-attachments/assets/d9f153e2-b78a-49b0-bf9c-1b6c18b81d08)
+![image](https://github.com/user-attachments/assets/89b39565-139c-4bff-b256-a563726882c8)
+![image](https://github.com/user-attachments/assets/d83a8c76-4a32-4b55-ad68-a70f34e57d6b)
 
 
 ## 📁 Folder Structure
