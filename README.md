@@ -41,7 +41,7 @@ Homio uses a couple of custom cards,
 
 **layout-card by Thomas Loven** — https://github.com/thomasloven/lovelace-layout-card - You’ll need to actually use the slightly modified version included in this repo based on the layout-card by Thomas Loven              **https://github.com/iamtherufus/Homio/blob/main/layout-card-modified.js** which supports some extra CSS properties. Dont install this card via HACS, grab it from the repo. 
 
-If you have installed the unmodified version of this card via HACS in the past or added it manually you will need to remove it otherwise it will conflict with the modified version from this repo.
+If you have installed the un-modified version of this card via HACS in the past or added it manually you will need to remove it otherwise it will conflict with the modified version from this repo.
 
 This card needs to be installed in this location,
 
