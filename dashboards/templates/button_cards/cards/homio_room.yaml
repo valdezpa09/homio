@@ -54,6 +54,15 @@ homio_room:
       - place-content: center
     custom_fields:
       motion_detection:
+        - display: |
+            [[[
+              if (!variables.motion_sensor) {
+                return 'none';
+              }
+              else {
+                return 'block'
+              }
+            ]]]      
         - position: fixed
         - right: 0
         - left: 0
