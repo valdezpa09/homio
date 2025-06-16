@@ -60,9 +60,15 @@ homio_room:
         - bottom: 0
         - transform: |
             [[[
-              return (variables.show_motion && states[variables.motion_sensor].state === "on")
+              if (!variables.motion_sensor) {
+                return '';
+              }
+              else {
+                return states[variables.motion_sensor].state === "on"
                 ? "translateY(0)"
                 : "translateY(100%)";
+              }            
+
             ]]]
         - transition: transform 0.5s
         - padding: 20px
