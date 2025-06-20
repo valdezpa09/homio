@@ -871,6 +871,6 @@ views:
 ```
 
 ## We made it to the end together
-I really hope you enjoy using homio, i've enjoyed building it and im still so overwhelmed with all the positive feedback and uptake its recieved. Thanks for all the kind messages i have recieved as well. If you want to buy me a coffee to say thanks feel free.
+I really hope you enjoy using homio, i've enjoyed building it and im still so overwhelmed with all the positive feedback and uptake its recieved. Thanks for all the kind messages i have recieved as well. If you want to buy me a coffee to say thanks and keep me awake feel free.
 
 <a href="https://www.buymeacoffee.com/iamtherufus" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
