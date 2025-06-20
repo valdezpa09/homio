@@ -2,6 +2,8 @@
 
 Homio is a clean, minimal, and fully YAML-based dashboard for Home Assistant that i build for a bit of fun. It's still work in progress but wanted to share it with you after receiving many requests for it. It’s built with tablets in mind — perfect for a wall-mounted screen — but it also works well on mobile thanks to its responsive layout. Everything is done in YAML to give you full control and make it easier to share, reuse, and tweak. I recommend to use the visual studio code editor plugin in home assistant to make coding that little bit easier.
 
+I plan on looking to integrate/create other cards into the homio design in the very near future so feel free to reach out if you have any requests. 
+
 Desktop/Tablet view
 
 <img width="1512" alt="Screenshot 2025-06-11 at 22 04 05" src="https://github.com/user-attachments/assets/0c904899-f970-4fbe-9e13-64b069ffc126" />
@@ -867,3 +869,8 @@ views:
             entity: media_player.apple_tv
             name: Apple TV
 ```
+
+## We made it to the end together
+I really hope you enjoy using homio, i've enjoyed building it and im still so overwhelmed with all the positive feedback and uptake its recieved. Thanks for all the kind messages i have recieved as well. If you want to buy me a coffee to say thanks feel free.
+
+<a href="https://www.buymeacoffee.com/iamtherufus" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
