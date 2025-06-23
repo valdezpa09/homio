@@ -36,27 +36,24 @@ lovelace:
       filename: dashboards/homio/homio.yaml
 ```
 
-2. A Few Custom Cards
-Homio uses a couple of custom cards,
+2. Homio uses a couple of custom cards,
 
 **button-card by Romraider** — https://github.com/custom-cards/button-card  - This is the main building block of Homio. Install it via HCS.
 
-**layout-card by Thomas Loven** — https://github.com/thomasloven/lovelace-layout-card - You’ll need to actually use the slightly modified version included in this repo based on the layout-card by Thomas Loven              **https://github.com/iamtherufus/Homio/blob/main/layout-card-modified.js** which supports some extra CSS properties. Dont install this card via HACS, grab it from the repo. 
+**layout-card by Thomas Loven** — https://github.com/thomasloven/lovelace-layout-card - You’ll need to actually use the slightly modified version included in this repo based on the layout-card by Thomas Loven              **https://github.com/iamtherufus/Homio/blob/main/layout-card-modified.js** which supports some extra CSS properties. Dont install this card via HACS, grab it from the repo and install it manually. If you have installed the un-modified version of this card via HACS in the past you will need to remove it otherwise it will conflict with the modified version from this repo.
 
-If you have installed the un-modified version of this card via HACS in the past or added it manually you will need to remove it otherwise it will conflict with the modified version from this repo.
-
-This card needs to be installed in this location,
+The layout-card-modified needs to be installed in this location,
 
 **/www/community/layout-card-modified/layout-card-modified.js**
 
 **my-slider-v2 by AnthonMS** - This is a fantastic light slider created by AnthonMS which is used for the homio_light card brightness slider. Full details on his configuration can be found here.
      **https://github.com/AnthonMS/my-cards/blob/main/docs/cards/slider-v2.md**
 
-This card needs to be installed in this location,
+The my-slider-V2 card needs to be installed in this location,
 
 **/local/community/light-slider/my-slider-v2.js**
 
-If you install either the layout-card-modified or my-slider-v2 to a different location that is ok but you must reference the location in the main home assistant configuration file /config/configuation.yaml under resources,
+If you install either the layout-card-modified or my-slider-v2 to a different location that is ok but you must reference the location in the main home assistant configuration file **/config/configuation.yaml** under resources,
 
 **Example**
 ```
