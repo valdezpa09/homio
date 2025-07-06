@@ -229,7 +229,6 @@ Here’s what’s inside the main screen layout file. This is used for each room
 
 **Example**
 ```
-layout:
   grid-template-columns: 1fr
   grid-column-gap: 0px
   margin: 0
