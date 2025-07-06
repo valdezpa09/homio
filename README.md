@@ -112,8 +112,8 @@ Everything lives under `/config` in your Home Assistant setup,
 │   │   ├── button_cards/
 │   │   │   ├── base/                    # Base templates like homio_default
 │   │   │   └── cards/                   # Entity-specific cards like homio_light, homio_thermostat
-│   │   └── includes/
-│   │       ├── layouts/                # Layouts like homio_navigation.yaml
+│   │   └── includes/                    # Layouts like homio_navigation.yaml
+│                        
 │  
 │
 ├── packages/
