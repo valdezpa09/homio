@@ -9,7 +9,7 @@
     - homio_nav_button
   name: Dining Room
   variables:
-    path: /dashboards/homio/
+    path: /dashboards/homio/diningroom
 - type: custom:button-card
   template:
     - homio_nav_button
