@@ -3,13 +3,13 @@
     - homio_nav_button
   name: Kitchen
   variables:
-    path: /dashboards/homio/kitchen
+    path: /dashboards/homio/kitchen.yaml
 - type: custom:button-card
   template:
     - homio_nav_button
   name: Dining Room
   variables:
-    path: /dashboards/homio/diningroom
+    path: /dashboards/homio/diningroom.yaml
 - type: custom:button-card
   template:
     - homio_nav_button
