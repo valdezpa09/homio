@@ -3,52 +3,52 @@
     - homio_nav_button
   name: Kitchen
   variables:
-    path: /dashboards/homio/kitchen.yaml
+    path: kitchen
 - type: custom:button-card
   template:
     - homio_nav_button
   name: Dining Room
   variables:
-    path: /dashboards/homio/diningroom.yaml
+    path: diningroom
 - type: custom:button-card
   template:
     - homio_nav_button
   name: Family Room
   variables:
-    path: /dashboards/homio/
+    path: 
 - type: custom:button-card
   template:
     - homio_nav_button
   name: Garage
   variables:
-    path: /dashboards/homio/
+    path: 
 - type: custom:button-card
   template:
     - homio_nav_button
   name: Living Room
   variables:
-    path: /dashboards/homio/
+    path: 
 - type: custom:button-card
   template:
     - homio_nav_button
   name: Bedroom
   variables:
-    path: /dashboards/homio/
+    path: 
 - type: custom:button-card
   template:
     - homio_nav_button
   name: Bathroom
   variables:
-    path: /dashboards/homio/
+    path: 
 - type: custom:button-card
   template:
     - homio_nav_button
   name: Office
   variables:
-    path: /dashboards/homio/
+    path: 
 - type: custom:button-card
   template:
     - homio_nav_button
   name: 
   variables:
-    path: /dashboards/homio/
+    path: 
