@@ -1,5 +1,5 @@
 homio_mobile_logo:
-  name: Homio.
+  name: Blackout Home.
   tap_action:
     action: navigate
     navigation_path: /dashboard-homio/home

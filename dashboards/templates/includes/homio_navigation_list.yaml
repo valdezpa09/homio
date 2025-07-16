@@ -1,54 +1,54 @@
 - type: custom:button-card
   template:
     - homio_nav_button
-  name: Room1
+  name: Kitchen
   variables:
-    path: # ADD PATH TO REQUIRED DASHBOARD FOR EXAMPLE /dashboard-homio/lounge
+    path: /dashboards/homio/kitchen
 - type: custom:button-card
   template:
     - homio_nav_button
-  name: Room2
+  name: Dining Room
   variables:
-    path: # ADD PATH TO REQUIRED DASHBOARD FOR EXAMPLE /dashboard-homio/lounge
+    path: /dashboards/homio/
 - type: custom:button-card
   template:
     - homio_nav_button
-  name: Room3
+  name: Family Room
   variables:
-    path: # ADD PATH TO REQUIRED DASHBOARD FOR EXAMPLE /dashboard-homio/lounge
+    path: /dashboards/homio/
 - type: custom:button-card
   template:
     - homio_nav_button
-  name: Room4
+  name: Garage
   variables:
-    path: # ADD PATH TO REQUIRED DASHBOARD FOR EXAMPLE /dashboard-homio/lounge
+    path: /dashboards/homio/
 - type: custom:button-card
   template:
     - homio_nav_button
-  name: Room5
+  name: Living Room
   variables:
-    path: # ADD PATH TO REQUIRED DASHBOARD FOR EXAMPLE /dashboard-homio/lounge
+    path: /dashboards/homio/
 - type: custom:button-card
   template:
     - homio_nav_button
-  name: Room6
+  name: Bedroom
   variables:
-    path: # ADD PATH TO REQUIRED DASHBOARD FOR EXAMPLE /dashboard-homio/lounge
+    path: /dashboards/homio/
 - type: custom:button-card
   template:
     - homio_nav_button
-  name: Room7
+  name: Bathroom
   variables:
-    path: # ADD PATH TO REQUIRED DASHBOARD FOR EXAMPLE /dashboard-homio/lounge
+    path: /dashboards/homio/
 - type: custom:button-card
   template:
     - homio_nav_button
-  name: Room8
+  name: Office
   variables:
-    path: # ADD PATH TO REQUIRED DASHBOARD FOR EXAMPLE /dashboard-homio/lounge
+    path: /dashboards/homio/
 - type: custom:button-card
   template:
     - homio_nav_button
-  name: Room9
+  name: 
   variables:
-    path: # ADD PATH TO REQUIRED DASHBOARD FOR EXAMPLE /dashboard-homio/lounge
+    path: /dashboards/homio/

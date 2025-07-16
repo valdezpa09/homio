@@ -2,33 +2,46 @@ homeassistant:
   packages: !include_dir_named packages
 # Loads default set of integrations. Do not remove.
 default_config:
-
 # Load frontend themes from the themes folder
 frontend:
   themes: !include_dir_merge_named themes
-
+#Loads Xiaomi
+xiaomi_miot:
+  username: valdezpa09@gmail.com
+  password: k^NJ*4VJvb
+#allows proxy for pangulin
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 172.16.0.0/16
+  server_port: 8123
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 template: !include sensors.yaml
-
 lovelace:
   mode: "storage"
   resources:
     - type: "module"
-      url: "/hacsfiles/button-card/button-card.js"
+      url: "/config/www/community/button-card/button-card.js"
     - type: "module"
-      url: "/hacsfiles/kiosk-mode/kiosk-mode.js"
+      url: "/config/www/community/kiosk-mode/kiosk-mode.js"
     - type: "module"
-      url: "/local/community/layout-card-modified/layout-card-modified.js?v=12"
+      url: "/config/www/community/layout-card-modified/layout-card-modified.js"
     - type: "module"
-      url: "/local/community/light-slider/my-slider-v2.js"
+      url: "/config/www/community/my-cards/my-slider-v2.js"
     - type: "css"
       url: "https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&display=swap"
+    - url: /hacsfiles/mushroom-strategy/mushroom-strategy.js
+      type: module
   dashboards:
     dashboard-homio:
       mode: yaml
-      title: "homio"
+      title: "Home"
       icon: mdi:star-plus-outline
       show_in_sidebar: true
       filename: dashboards/homio/homio.yaml
+recorder:
+  purge_keep_days: 30
+  commit_interval: 3
+  db_url: postgresql://home-assistant:gf3U4EapE%2A13qh@postgres:5432/home-assistant?sslmode=disable

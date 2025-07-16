@@ -1,0 +1,59 @@
+button_card_templates: !include_dir_merge_named /config/dashboards/templates/button_cards
+views:
+  - type: custom:grid-layout
+    title: Kitchen
+    path: kitchen
+    layout: !include /config/dashboards/templates/includes/homio_screen_layout.yaml
+    cards:
+      - type: custom:button-card
+        variables:
+          image: /api/image/serve/37c8e24cea369c18ec6827a335b095e3/original
+          image_position: center center
+          show_humid: true
+          humid_sensor: sensor.living_room_humidity
+          show_temp: true
+          temp_sensor: sensor.living_room_temperature
+          show_motion: true
+          motion_sensor: binary_sensor.nest_protect_downstairs_occupancy
+        template:
+          - homio_room
+        name: Kitchen
+      - type: custom:layout-card
+        layout_type: custom:grid-layout
+        layout: !include /config/dashboards/templates/includes/homio_entity_layout.yaml
+        cards:
+          - type: custom:button-card
+            variables:
+              icon: mdi:light-recessed
+            template:
+              - homio_entity
+            entity: light.kitchen_lights
+            name: All Lights
+          - type: custom:button-card
+            variables:
+              icon: 
+            template:
+              - homio_thermostat
+            entity: climate.living_room
+            name: Thermostat
+          - type: custom:button-card
+            variables:
+              icon: pendent
+            template:
+              - homio_light
+            entity: light.cabinets_left_light
+            name: Cabinet Left Light
+          - type: custom:button-card
+            variables:
+              icon: pendent
+            template:
+              - homio_light
+            entity: light.cabinets_left_light
+            name: Cabinet Right Light
+          - type: custom:button-card
+            variables:
+              icon: mdi:faucet
+            template:
+              - homio_light
+            entity: light.sink
+            name: Sink Light

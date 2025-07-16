@@ -4,7 +4,7 @@ homio_logo:
   tap_action:
     action: navigate
     navigation_path: /dashboard-homio/home
-  name: Homio.
+  name: Blackout Home.
   styles:
     name:
       - color: var(--primary-text-color)
