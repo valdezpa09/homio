@@ -1,8 +1,8 @@
 button_card_templates: !include_dir_merge_named /config/dashboards/templates/button_cards
 views:
   - type: custom:grid-layout
-    title: Kitchen
-    path: kitchen
+    title: Dining Room
+    path: diningroom
     layout: !include /config/dashboards/templates/includes/homio_screen_layout.yaml
     cards:
       - type: custom:button-card
@@ -17,7 +17,7 @@ views:
           motion_sensor: binary_sensor.nest_protect_downstairs_occupancy
         template:
           - homio_room
-        name: Kitchen
+        name: Dining Room
       - type: custom:layout-card
         layout_type: custom:grid-layout
         layout: !include /config/dashboards/templates/includes/homio_entity_layout.yaml
@@ -27,8 +27,8 @@ views:
               icon: mdi:light-recessed
             template:
               - homio_entity
-            entity: light.kitchen_lights
-            name: All Lights
+            entity: light.dining_room_light
+            name: Dining Room Light
           - type: custom:button-card
             variables:
               icon: 
@@ -38,18 +38,18 @@ views:
             name: Thermostat
           - type: custom:button-card
             variables:
-              icon: pendent
+              icon: window
             template:
               - homio_light
-            entity: light.cabinets_left_light
-            name: Cabinet Left Light
+            entity: switch.window_plugs
+            name: Window Plugs
           - type: custom:button-card
             variables:
-              icon: pendent
+              icon: mdi:string-lights
             template:
               - homio_light
-            entity: light.cabinets_left_light
-            name: Cabinet Right Light
+            entity: switch.window_holiday_lights
+            name: Holiday Lights
           - type: custom:button-card
             variables:
               icon: mdi:faucet
