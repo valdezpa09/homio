@@ -46,7 +46,7 @@ recorder:
   commit_interval: 3
   db_url: postgresql://home-assistant:gf3U4EapE%2A13qh@postgres:5432/home-assistant?sslmode=disable
 
-  #mojo device testing
+#mojo device testing
   device_tracker:
   - platform: mojio
     domain: tmobile-us
